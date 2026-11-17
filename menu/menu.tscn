@@ -1,0 +1,155 @@
+[gd_scene load_steps=12 format=3 uid="uid://bolsduax3mgf4"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://bjxu7406b00xs" path="res://sounds/musicmenu.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://0gngq5me88u" path="res://sounds/musicgameplay1.wav" id="3"]
+[ext_resource type="Texture2D" uid="uid://c7ytwrrpt80bl" path="res://misc/background.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://u4qojdf4ihyw" path="res://misc/title.png" id="5"]
+[ext_resource type="FontFile" uid="uid://dokohdsl3bnvf" path="res://assets/gothic_pixel.ttf" id="6"]
+[ext_resource type="Texture2D" uid="uid://dam7u6ibijxdo" path="res://assets/pump.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dx1vjpp5xvkgn" path="res://assets/weapon1.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://5w5dojeiq2dr" path="res://assets/bat1.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cwvbghrb61gj8" path="res://assets/ghost1.png" id="10"]
+
+[sub_resource type="Theme" id="Theme_msjqx"]
+default_font = ExtResource("6")
+default_font_size = 64
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1")
+menusound = ExtResource("2")
+gameplaysound = ExtResource("3")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4")
+stretch_mode = 1
+
+[node name="MMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+volume_db = -6.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.407843)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Title" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = -224.0
+offset_right = 640.0
+offset_bottom = 496.0
+grow_horizontal = 2
+texture = ExtResource("5")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 311.0
+offset_right = -956.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.890196)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -384.0
+offset_right = 296.0
+offset_bottom = -128.0
+grow_vertical = 0
+theme = SubResource("Theme_msjqx")
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Play" type="Button" parent="Buttons/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+flat = true
+
+[node name="Options" type="Button" parent="Buttons/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="Buttons/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Quit"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 792.0
+offset_top = 243.0
+offset_right = 1134.0
+offset_bottom = 585.0
+texture = ExtResource("7")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 888.0
+offset_top = 355.0
+offset_right = 1221.0
+offset_bottom = 688.0
+texture = ExtResource("8")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = 62.0
+offset_top = 246.0
+offset_right = 156.0
+offset_bottom = 340.0
+texture = ExtResource("9")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 622.0
+offset_top = 228.0
+offset_right = 779.0
+offset_bottom = 385.0
+texture = ExtResource("10")
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 32
+text = "Version: Gamejam v0.1 | https://hunravel.itch.io/"
+
+[connection signal="pressed" from="Buttons/VBoxContainer/Play" to="." method="_on_play_pressed" flags=18]
+[connection signal="pressed" from="Buttons/VBoxContainer/Options" to="." method="_on_options_pressed" flags=18]
+[connection signal="pressed" from="Buttons/VBoxContainer/Quit" to="." method="_on_quit_pressed" flags=18]

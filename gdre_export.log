@@ -1,0 +1,34 @@
+GDRE Tools v2.8.0-beta.2
+Fedora Linux 44 (Workstation Edition), Intel(R) Graphics (MTL), vulkan
+Opening file: /mnt/Storage/Games/HTML/index.pck
+Guessing best bytecode revision from engine version 4.1.1: 4.3.0-stable (rev 0x77af6ca)
+Loaded 35 imported files
+Detected Engine Version: 4.1.1
+Detected Bytecode Revision: 4.3.0-stable (77af6ca)
+Verified 87 files, no errors detected!
+Extracted 87 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     0
+Scripts not decompiled:                 0
+Imported resources for export session:  35
+Successfully converted:                 35
+Lossy:                                  1
+Rewrote metadata:                       24
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.1.1 to edit the project.
+
+*******************************************************************************
+

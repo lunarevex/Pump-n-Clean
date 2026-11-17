@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://dba42xn0aidgl"]
+
+[ext_resource type="Script" path="res://menu/success.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c7ytwrrpt80bl" path="res://misc/background.png" id="2"]
+[ext_resource type="FontFile" uid="uid://dokohdsl3bnvf" path="res://assets/gothic_pixel.ttf" id="3"]
+[ext_resource type="FontFile" uid="uid://bwjmggelf1w4q" path="res://assets/GothicPixels.ttf" id="4"]
+
+[node name="Success" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.239216)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 411.0
+offset_top = 492.0
+offset_right = -421.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.635294)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -95.0
+offset_right = 245.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Stats2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 64
+text = "FINAL TIME:"
+
+[node name="Stats1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 64
+text = "Total Monsters Killed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 146.0
+offset_right = 196.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 96
+action_mode = 0
+text = "I shall rest."
+flat = true
+
+[node name="Rest" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -511.0
+offset_top = 72.0
+offset_right = 511.0
+offset_bottom = 203.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.964706, 0.47451, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 96
+text = "GOOD JOB, PUMP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed" flags=18]
